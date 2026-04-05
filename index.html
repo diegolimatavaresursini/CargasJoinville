@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CargasJoinville</title>
+    <style>
+        /* Reset e Configurações Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Topo / Navegação */
+        header {
+            background-color: #1a252f;
+            color: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1abc9c;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a:hover {
+            color: #1abc9c;
+        }
+
+        /* Seção Hero (Destaque inicial) */
+        .hero {
+            background: linear-gradient(rgba(26, 37, 47, 0.8), rgba(26, 37, 47, 0.8)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            background-color: #1abc9c;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #16a085;
+        }
+
+        /* Estilo comum para as seções */
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #1abc9c;
+            margin: 10px auto 0;
+        }
+
+        /* Quem Somos */
+        #quem-somos .content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        #quem-somos .content div {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        /* Trabalhos / Serviços */
+        #servicos .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h3 {
+            color: #1abc9c;
+            margin-bottom: 15px;
+        }
+
+        /* Seção de GIFs */
+        #gifs .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            background: #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Fale Conosco */
+        #contato form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #1a252f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        form button:hover {
+            background-color: #1abc9c;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px;
+            }
+            nav ul {
+                margin-top: 15px;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">CargasJoinville</div>
+        <nav>
+            <ul>
+                <li><a href="#quem-somos">Quem Somos</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#gifs">Operações</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Eficiência em Cada Etapa da Cadeia de Suprimentos</h1>
+        <p>Carga, descarga, conferência e expedição com agilidade e zero falhas.</p>
+        <a href="#contato" class="btn">Solicite um Orçamento</a>
+    </div>
+
+    <section id="quem-somos">
+        <div class="section-title">Quem Somos</div>
+        <div class="content">
+            <div>
+                <h2>Sua carga em mãos profissionais</h2>
+                <p>Somos um grupo especializado em soluções logísticas ponta a ponta. Com anos de experiência no mercado, otimizamos o recebimento, a triagem e o despacho de mercadorias. Nosso foco é garantir que sua operação não pare e que os prazos sejam sempre cumpridos.</p>
+                <p>Nossa equipe é altamente treinada para manusear desde pequenos volumes até cargas complexas de grande escala.</p>
+            </div>
+            <div>
+                <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=80" alt="Equipe de Logística" style="width:100%; border-radius:8px;">
+            </div>
+        </div>
+    </section>
+
+    <hr style="border: 0; height: 1px; background: #ddd;">
+
+    <section id="servicos">
+        <div class="section-title">O Que Fazemos</div>
+        <div class="grid">
+            <div class="card">
+                <h3>Carga e Descarga</h3>
+                <p>Movimentação rápida e segura de mercadorias, minimizando o tempo de espera dos caminhões.</p>
+            </div>
+            <div class="card">
+                <h3>Conferência</h3>
+                <p>Inspeção rigorosa na entrada e saída para garantir que a quantidade e a qualidade estejam perfeitas.</p>
+            </div>
+            <div class="card">
+                <h3>Logística e Envio</h3>
+                <p>Planejamento de rotas e fluxo interno para que o produto chegue ao destino pelo menor custo.</p>
+            </div>
+            <div class="card">
+                <h3>Expedição e Entrega</h3>
+                <p>Separação rápida (picking), embalagem segura e despacho eficiente para a última milha.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr style="border: 0; height: 1px; background: #ddd;">
+
+    <section id="gifs">
+        <div class="section-title">Nossa Operação em Ação</div>
+        <p style="text-align: center; margin-bottom: 30px;">Veja um pouco do dinamismo do nosso dia a dia:</p>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3N2eThhZnA5YWpvemtieGlpaWptMHZndWNua2ptODhxN25udTllOSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/KyMofIYW7PKasMBUMK/giphy.gif" alt="Empilhadeira trabalhando">
+            </div>
+            <div class="gallery-item">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGFtYXRrZXVidjUyb3h0bDVwZXF1eXN4NHRscnhxZTZlZDJ2MGMweSZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/fHsuN3G9y5plM7uD1E/giphy.gif" alt="Separação de pacotes">
+            </div>
+            <div class="gallery-item">
+                <img src="https://media.giphy.com/media/3o7TKSjRrfIPjei16M/giphy.gif" alt="Caminhão saindo para entrega">
+            </div>
+        </div>
+    </section>
+
+    <hr style="border: 0; height: 1px; background: #ddd;">
+
+    <section id="contato">
+        <div class="section-title">Fale Conosco</div>
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="nome">Nome ou Empresa:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome ou da empresa" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+            </div>
+            <div class="form-group">
+                <label for="mensagem">Como podemos ajudar?</label>
+                <textarea id="mensagem" name="mensagem" rows="5" placeholder="Descreva sua necessidade logística..." required></textarea>
+            </div>
+            <button type="submit">Enviar Mensagem</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 CargasJoinville - Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
